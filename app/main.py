@@ -1,6 +1,7 @@
 import logging
 
 import uvicorn
+from mangum import Mangum
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -30,20 +31,22 @@ def init_app():
 
 
 if __name__ == "__main__":
-    print('Start migration...')
-    try:
-        migrate()
-    except Exception as ex:
-        print(ex)
-    print('Done.')
+    # print('Starting migration...')
+    # try:
+    #     migrate()
+    # except Exception as ex:
+    #     print(ex)
+    # print('Done.')
 
-    print('Start app...')
-    uvicorn.run(
-        init_app(),
-        host=settings.APP_HOST,
-        port=settings.APP_PORT,
-        workers=settings.APP_WORKER_COUNT,
-        loop="uvloop",
-        log_config=settings.LOG_CONFIG,
-        log_level=logging.getLevelName(settings.LOG_LEVEL),
-    )
+    print("Starting app...")
+    # uvicorn.run(
+    #     init_app(),
+    #     host=settings.APP_HOST,
+    #     port=settings.APP_PORT,
+    #     workers=settings.APP_WORKER_COUNT,
+    #     loop="uvloop",
+    #     log_config=settings.LOG_CONFIG,
+    #     log_level=logging.getLevelName(settings.LOG_LEVEL),
+    # )
+
+    Mangum(init_app())

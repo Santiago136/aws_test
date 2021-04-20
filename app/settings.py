@@ -11,8 +11,8 @@ APP_WORKER_COUNT = int(os.getenv("APP_WORKER_COUNT", 1))
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG")
 
-DATABASE = boto3.resource('dynamodb', endpoint_url="http://localhost:8000")
-# DATABASE = boto3.resource('dynamodb', region_name='eu-central-1')
+# DATABASE = boto3.resource('dynamodb', endpoint_url="http://localhost:8000")
+DATABASE = boto3.resource("dynamodb", region_name="eu-central-1")
 
 LOG_CONFIG = {
     "version": 1,
