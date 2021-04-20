@@ -3,3 +3,4 @@ fastapi~=0.61.1
 uvicorn~=0.11.8
 setuptools~=50.3.0
 boto3~=1.17.53
+mangum~=0.11.0
